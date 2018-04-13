@@ -35,6 +35,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String SAVE_FILE_NAME = "SavedLists.txt";
@@ -46,16 +49,16 @@ public class MainActivity extends AppCompatActivity {
 
     public static Typeface mPangolinFont;
 
-    protected ListView mListView;
-    protected RelativeLayout mResultLayout;
-    protected ImageView mRandomizeBtn;
-    protected TextView mSelectedText;
-    protected FloatingActionButton mFab;
-    protected RelativeLayout mSavedLayouts;
+    @BindView(R.id.items_list) ListView mListView;
+    @BindView(R.id.result_layout) RelativeLayout mResultLayout;
+    @BindView(R.id.choose_button) ImageView mRandomizeBtn;
+    @BindView(R.id.selected_item) TextView mSelectedText;
+    @BindView(R.id.fab) FloatingActionButton mFab;
+    @BindView(R.id.saved_lists_layouts) RelativeLayout mSavedLayouts;
 
     protected ArrayAdapter mCurrentListAdapter;
 
-    protected ListView mSavedListsView;
+    @BindView(R.id.saved_lists_list) ListView mSavedListsView;
     protected ArrayAdapter mSavedListsAdapter;
 
     private List<UserList> mSavedLists;
@@ -69,21 +72,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ButterKnife.bind(this);
         setTitle("Choices made for you");
 
         mSavedLists = new ArrayList<>();
 
         mCurrentScreen = ADD_ITEM;
-
-
-        //Set views
-        mListView = (ListView) findViewById(R.id.items_list);
-        mResultLayout = (RelativeLayout) findViewById(R.id.result_layout);
-        mSelectedText = (TextView) findViewById(R.id.selected_item);
-        mRandomizeBtn = (ImageView) findViewById(R.id.choose_button);
-        mFab = (FloatingActionButton) findViewById(R.id.fab);
-        mSavedLayouts = (RelativeLayout) findViewById(R.id.saved_lists_layouts);
-        mSavedListsView = (ListView) findViewById(R.id.saved_lists_list);
 
         //set fonts
         TextView textView = (TextView) findViewById(R.id.text_title);
