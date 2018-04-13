@@ -19,7 +19,7 @@ import static android.os.ParcelFileDescriptor.MODE_WORLD_READABLE;
 public class FileManager {
 
     public static void writeFile(String fileName, String contents, Context context) throws IOException {
-        FileOutputStream fOut = context.openFileOutput(fileName, MODE_WORLD_READABLE);
+        FileOutputStream fOut = context.openFileOutput(fileName, Context.MODE_PRIVATE);
         fOut.write(contents.getBytes());
         fOut.close();
     }
