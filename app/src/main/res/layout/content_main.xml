@@ -11,18 +11,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.jose.randomdecider.MainActivity"
-    android:background="#fff"
+
     tools:showIn="@layout/activity_main">
 
     <TextView
+        android:id="@+id/text_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:text="Your options"
         android:textSize="35sp"
         android:textStyle="bold"
-        android:text="Your options"
-        android:textColor="@color/colorPrimaryDark"
-        android:id="@+id/text_title"/>
+        tools:fontFamily="@font/varela_round"/>
     
     <ListView
         android:layout_width="match_parent"

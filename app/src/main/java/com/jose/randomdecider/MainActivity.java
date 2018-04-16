@@ -79,14 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
         mCurrentScreen = ADD_ITEM;
 
-        //set fonts
-        TextView textView = (TextView) findViewById(R.id.text_title);
-        mPangolinFont = Typeface.createFromAsset(getAssets(), "fonts/Pangolin-Regular.ttf");
-        textView.setTypeface(mPangolinFont);
-        mSelectedText.setTypeface(mPangolinFont);
-        TextView savedListsTitle = (TextView) findViewById(R.id.saved_title);
-        savedListsTitle.setTypeface(mPangolinFont);
-
 
         //Randomize
         mRandomizeBtn.setOnClickListener(new View.OnClickListener() {
