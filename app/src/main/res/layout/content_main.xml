@@ -6,56 +6,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.jose.randomdecider.MainActivity"
 
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:id="@+id/text_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Your options"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        tools:fontFamily="@font/varela_round"/>
-    
-    <ListView
+    <RelativeLayout
+        android:id="@+id/your_options_layout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@id/text_title"
-        android:layout_marginTop="20dp"
-        android:id="@+id/items_list"
-        android:background="@drawable/gradient_bg"/>
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:text="Choose"
-        android:src="@drawable/dart_board"
-        android:id="@+id/choose_button"
-        android:layout_below="@id/items_list"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Your options"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            tools:fontFamily="@font/varela_round"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/text_title"
+            android:layout_above="@+id/choose_button"
+            android:layout_marginTop="20dp"
+            app:cardElevation="5dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin">
+
+            <ListView
+                android:id="@+id/items_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+        </android.support.v7.widget.CardView>
+
+        <ImageView
+            android:id="@+id/choose_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="Choose"
+            android:src="@drawable/dart_board"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/result_layout"
         android:visibility="invisible"
-        android:background="#fff">
+        android:background="#fff"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:layout_centerInParent="true"
-            android:text="Test"
-            android:id="@+id/selected_item"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_centerInParent="true"
+                android:text="Test"
+                android:id="@+id/selected_item"/>
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -63,7 +82,10 @@
         android:layout_height="match_parent"
         android:id="@+id/saved_lists_layouts"
         android:visibility="invisible"
-        android:background="#fff">
+        android:background="#fff"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin">
+
 
         <TextView
             android:layout_width="wrap_content"

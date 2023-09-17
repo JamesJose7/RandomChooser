@@ -50,11 +50,12 @@ public class MainActivity extends AppCompatActivity {
     public static Typeface mPangolinFont;
 
     @BindView(R.id.items_list) ListView mListView;
-    @BindView(R.id.result_layout) RelativeLayout mResultLayout;
     @BindView(R.id.choose_button) ImageView mRandomizeBtn;
     @BindView(R.id.selected_item) TextView mSelectedText;
     @BindView(R.id.fab) FloatingActionButton mFab;
+    @BindView(R.id.result_layout) RelativeLayout mResultLayout;
     @BindView(R.id.saved_lists_layouts) RelativeLayout mSavedLayouts;
+    @BindView(R.id.your_options_layout) RelativeLayout mYourOptionsLayout;
 
     protected ArrayAdapter mCurrentListAdapter;
 
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 if (mUserList != null) {
                     if (!mUserList.getList().isEmpty()) {
                         mResultLayout.setVisibility(View.VISIBLE);
+                        mYourOptionsLayout.setVisibility(View.INVISIBLE);
                         //Change screen
                         mCurrentScreen = RESULT_SCREEN;
                         switchFabIcon();
@@ -117,10 +119,12 @@ public class MainActivity extends AppCompatActivity {
                 } else if (mCurrentScreen == RESULT_SCREEN) {
                     mCurrentScreen = ADD_ITEM;
                     mResultLayout.setVisibility(View.INVISIBLE);
+                    mYourOptionsLayout.setVisibility(View.VISIBLE);
                     switchFabIcon();
                 } else if (mCurrentScreen == SAVED_LISTS) {
                     mCurrentScreen = ADD_ITEM;
                     mSavedLayouts.setVisibility(View.INVISIBLE);
+                    mYourOptionsLayout.setVisibility(View.VISIBLE);
                     switchFabIcon();
                 }
             }
